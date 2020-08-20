@@ -12,7 +12,5 @@ namespace WasteManagement.Data.DatabaseContext
       : base(options)
         { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite("Data Source=waste.db");
     }
 }

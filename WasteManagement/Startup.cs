@@ -66,7 +66,7 @@ namespace WasteManagement
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=WasteContainer}/{action=Index}/{id?}");
             });
 
         }
