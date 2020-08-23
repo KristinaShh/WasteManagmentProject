@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WasteManagement.Data.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class UbuntuInit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

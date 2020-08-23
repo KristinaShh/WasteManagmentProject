@@ -10,6 +10,7 @@ using WasteContainer.Services;
 using WasteManagement.Data.DatabaseContext;
 using WasteManagement.Data.Repositories;
 using WasteManagement.Models.Interfaces;
+using System.Configuration;
 
 namespace WasteManagement
 {
@@ -25,6 +26,8 @@ namespace WasteManagement
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = ConfigurationManager.ConnectionStrings["Connection"].ToString();
+
             services.AddMvc().AddJsonOptions(o =>
             {
                 o.JsonSerializerOptions.PropertyNamingPolicy = null;
@@ -32,8 +35,8 @@ namespace WasteManagement
             });
 
             services.AddControllersWithViews();
-
-            services.AddDbContext<WasteManagementDbContext>(options => options.UseSqlite("Data Source=waste.db"));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
+            services.AddDbContext<WasteManagementDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddScoped<IWasteManagementDbContext>(provider => provider.GetService<WasteManagementDbContext>());
             services.AddTransient<IWasteContainerService, WasteContainerService>();
