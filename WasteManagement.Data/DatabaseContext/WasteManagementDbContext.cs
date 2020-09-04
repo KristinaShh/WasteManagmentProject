@@ -17,7 +17,7 @@ namespace WasteManagement.Data.DatabaseContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=db;User=sa;Password=P@ssw0rd123!;");
+            optionsBuilder.UseSqlServer("Server=.;Initial Catalog=WasteManagement;User=sa;Password=P@ssw0rd123!;");
         }
     }
 }
